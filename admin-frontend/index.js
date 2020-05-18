@@ -98,7 +98,7 @@ async function displayArticles(token) {
       : "Publish Article";
     publishButton.addEventListener("click", async () => {
       const response = await fetch(
-        `http://localhost:5000/articles/${article._id}/publish`,
+        `https://sheltered-peak-99436.herokuapp.com/articles/${article._id}/publish`,
         {
           method: "PUT",
           headers: {
