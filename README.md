@@ -1,5 +1,6 @@
 # Barry's Blog
-I created this blog using the NodeJS Express framework and MongoDB on the backend to serve up an API endpoint with protected routes using Passport and JWT.  
+I created this blog using the NodeJS Express framework and MongoDB on the backend to serve up an API endpoint.  
+[This video](https://www.youtube.com/watch?v=2jqok-WgelI) helped with setting up the protected routes using Passport and JWT.   
 
 I also created two seperate frontends: one for blog readers as well as an admin site with CRUD functionality.  
 
