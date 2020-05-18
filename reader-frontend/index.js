@@ -1,7 +1,9 @@
 const articlesContainer = document.querySelector(".article-container");
 
 async function displayArticles() {
-  const articleResponse = await fetch("http://localhost:5000/articles");
+  const articleResponse = await fetch(
+    "https://sheltered-peak-99436.herokuapp.com/articles"
+  );
   const articles = await articleResponse.json();
   articles.forEach(async (article) => {
     console.log(article._id);
@@ -17,8 +19,8 @@ async function displayArticles() {
         <h4>Comments</h4>
     `;
 
-    const commentResponse = await fetch(
-      `http://localhost:5000/articles/${article._id}/comments`
+    https: const commentResponse = await fetch(
+      `https://sheltered-peak-99436.herokuapp.com/articles/${article._id}/comments`
     );
     const comments = await commentResponse.json();
     console.log(comments);
@@ -33,7 +35,7 @@ async function displayArticles() {
     // show comment form for article
     const commentForm = `
     <h4>Leave a comment<h4>
-    <form action="http://localhost:5000/articles/${article._id}/comments/new" method="post">
+    <form action="https://sheltered-peak-99436.herokuapp.com/articles/${article._id}/comments/new" method="post">
       <label for="username">Username</label><br/>
       <input type="text" name="username" required/><br/>
       <label for="message">Your message</label><br/>

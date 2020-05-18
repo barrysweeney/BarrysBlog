@@ -12,13 +12,16 @@ loginForm.addEventListener("submit", async (e) => {
   const body = {};
   body.username = username;
   body.password = password;
-  const response = await fetch("http://localhost:5000/log-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
+  const response = await fetch(
+    "https://sheltered-peak-99436.herokuapp.com/log-in",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }
+  );
   const status = await response.status;
   if (status === 200) {
     token = await response.text();
@@ -36,14 +39,17 @@ newArticleForm.addEventListener("submit", async (e) => {
   const body = {};
   body.title = title;
   body.content = content;
-  const response = await fetch("http://localhost:5000/articles/new", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "auth-token": token,
-    },
-    body: JSON.stringify(body),
-  });
+  const response = await fetch(
+    "https://sheltered-peak-99436.herokuapp.com/articles/new",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": token,
+      },
+      body: JSON.stringify(body),
+    }
+  );
   const status = await response.status;
 
   if (status === 200) {
@@ -54,11 +60,14 @@ newArticleForm.addEventListener("submit", async (e) => {
 
 async function displayArticles(token) {
   publishContainer.innerHTML = "";
-  const articleResponse = await fetch("http://localhost:5000/articles/all", {
-    headers: {
-      "auth-token": token,
-    },
-  });
+  const articleResponse = await fetch(
+    "https://sheltered-peak-99436.herokuapp.com/articles/all",
+    {
+      headers: {
+        "auth-token": token,
+      },
+    }
+  );
   const articles = await articleResponse.json();
   articles.forEach((article) => {
     const articleContent = document.createElement("div");
@@ -66,7 +75,7 @@ async function displayArticles(token) {
     deleteButton.innerText = "Delete Article";
     deleteButton.addEventListener("click", async () => {
       const response = await fetch(
-        `http://localhost:5000/articles/${article._id}/delete`,
+        `https://sheltered-peak-99436.herokuapp.com/articles/${article._id}/delete`,
         {
           method: "DELETE",
           headers: {
@@ -147,7 +156,7 @@ async function displayArticles(token) {
       formBody.title = editForm.title.value;
       formBody.content = editForm.content.value;
       const response = await fetch(
-        `http://localhost:5000/articles/${article._id}/edit`,
+        `https://sheltered-peak-99436.herokuapp.com/articles/${article._id}/edit`,
         {
           method: "PUT",
           headers: {
