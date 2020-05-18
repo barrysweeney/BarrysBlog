@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Barry's Blog - Admin Panel</h1>
+    <div class="login-container">
+      <h2>Log in</h2>
+      <p>Demo login with username "admin" and password "password"</p>
+      <form class="loginForm">
+        <label for="username">Username</label>
+        <input type="text" name="username" />
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+        <button type="submit">Log in</button>
+      </form>
+    </div>
+    <div class="article-container">
+      <h2>Publish Articles</h2>
+      <div class="publish-container"></div>
+      <h2>New Article</h2>
+      <form class="new-article-form">
+        <label for="title">Title</label><br />
+        <input type="text" name="title" /><br />
+        <label for="content">Content</label><br />
+        <textarea type="text" name="content"></textarea><br />
+        <button type="submit">Create</button>
+      </form>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
