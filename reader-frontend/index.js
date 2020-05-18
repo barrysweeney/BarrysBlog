@@ -6,8 +6,6 @@ async function displayArticles() {
   );
   const articles = await articleResponse.json();
   articles.forEach(async (article) => {
-    console.log(article._id);
-
     // get comments for the article
     // add the article and comments to the container div
     const articleContent = document.createElement("div");
@@ -19,7 +17,7 @@ async function displayArticles() {
         <h4>Comments</h4>
     `;
 
-    https: const commentResponse = await fetch(
+    const commentResponse = await fetch(
       `https://sheltered-peak-99436.herokuapp.com/articles/${article._id}/comments`
     );
     const comments = await commentResponse.json();
